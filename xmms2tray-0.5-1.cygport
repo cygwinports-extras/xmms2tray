@@ -1,0 +1,18 @@
+inherit distutils
+
+DESCRIPTION="XMMS 2 system tray icon"
+HOMEPAGE="http://code.jollybox.de/wiki/Software/Xmms2tray"
+SRC_URI="http://code.jollybox.de/pub/xmms2tray/${P}.tar.gz"
+
+src_install() {
+	cd ${B}
+	distutils_install
+
+	for n in 24 64
+	do
+		insinto /usr/share/icons/hicolor/${n}x${n}/apps
+		newins data/xmms2_${n}.png ${PN}.png
+	done
+
+	make_desktop_entry ${PN} "XMMS2 Tray Icon" ${PN} "AudioVideo;Audio;Player"
+}
