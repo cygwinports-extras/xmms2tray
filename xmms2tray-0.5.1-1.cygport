@@ -8,11 +8,6 @@ src_install() {
 	cd ${B}
 	distutils_install
 
-	for n in 24 64
-	do
-		insinto /usr/share/icons/hicolor/${n}x${n}/apps
-		newins data/xmms2_${n}.png ${PN}.png
-	done
-
+	dohicolor ${PN}	data/xmms2_[1-9]*.png
 	make_desktop_entry ${PN} "XMMS2 Tray Icon" ${PN} "AudioVideo;Audio;Player"
 }
