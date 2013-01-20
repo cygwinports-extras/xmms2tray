@@ -1,6 +1,0 @@
-category: Audio
-requires: python python-gtk2.0 python-pil python-pynotify python-xmmsclient
-sdesc: "XMMS2 system tray icon"
-ldesc: "XMMS2tray is a small XMMS 2 client that displays an icon in the 
-X11 system tray with a popup menu. It can display notification bubbles 
-with GNOME's notification-daemon."

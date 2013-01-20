@@ -1,0 +1,24 @@
+inherit distutils
+
+NAME="xmms2tray"
+VERSION=0.5.1
+RELEASE=2
+CATEGORY="Audio"
+SUMMARY="XMMS2 system tray icon"
+DESCRIPTION="XMMS2tray is a small XMMS 2 client that displays an icon in the
+X11 system tray with a popup menu. It can display notification bubbles with
+notification-daemon."
+HOMEPAGE="http://code.jollybox.de/wiki/Software/Xmms2tray"
+SRC_URI="http://code.jollybox.de/pub/xmms2tray/${P}.tar.gz"
+
+src_install() {
+	cd ${B}
+	distutils_install
+
+	for i in 24 64
+	do
+		insinto /usr/share/icons/hicolor/${i}x${i}/apps
+		newins data/xmms2_${i}.png ${NAME}.png
+	done
+	make_desktop_entry ${PN} "XMMS2 Tray Icon" ${PN} "AudioVideo;Audio;Player"
+}
